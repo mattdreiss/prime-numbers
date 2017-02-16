@@ -48,7 +48,8 @@ public class PrimeNumberGeneratorPerformanceTest {
      * Displays the performance difference between the divisor method and the sieve of Eratosthenes in determining if
      * the maximum Java integer is prime or not.
      *
-     * LONG RUNNING TEST: Removed the @Ignore annotation to run the test.
+     * This is a long running test. Remove the @Ignore annotation to run the test.
+     * The Eratosthenes generation averaged 30 second execution time on a second generation Intel i7.
      */
     @Ignore
     @Test
@@ -66,6 +67,23 @@ public class PrimeNumberGeneratorPerformanceTest {
         stopwatch.stop();
 
         System.out.println("Eratosthenes max integer prime test: " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
+    }
+
+    /**
+     * Displays the performance metrics of generating the full range of primes between 1 and max integer.
+     *
+     * This is a long running test. Remove the @Ignore annotation to run the test.
+     * Averaged 67 second execution time on a second generation Intel i7.
+     */
+    @Ignore
+    @Test
+    public void generateMaxIntRange() throws Exception {
+
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        eratosthenesGenerator.generate(1, Integer.MAX_VALUE);
+        stopwatch.stop();
+
+        System.out.println("Eratosthenes max integer generation test: " + stopwatch.elapsed(TimeUnit.SECONDS) + "s");
     }
 
 }
