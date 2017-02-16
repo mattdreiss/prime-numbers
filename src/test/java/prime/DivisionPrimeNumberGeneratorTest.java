@@ -2,7 +2,6 @@ package prime;
 
 import com.google.common.collect.Ordering;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -13,13 +12,13 @@ import static org.junit.Assert.*;
 /**
  * Created by mrd on 2/13/17.
  */
-public class PrimeNumberGeneratorImplTest {
+public class DivisionPrimeNumberGeneratorTest {
 
     private PrimeNumberGenerator generator;
 
     @Before
     public void setup() {
-        generator = new SieveOfEratosthenesGenerator();
+        generator = new DivisionPrimeNumberGenerator();
     }
 
     @Test

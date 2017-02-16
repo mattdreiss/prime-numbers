@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by mrd on 2/13/17.
  */
-public class PrimeNumberGeneratorImpl implements PrimeNumberGenerator {
+public class DivisionPrimeNumberGenerator implements PrimeNumberGenerator {
 
     @Override
     public List<Integer> generate(int startingValue, int endingValue) {

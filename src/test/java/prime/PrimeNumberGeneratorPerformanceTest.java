@@ -18,7 +18,7 @@ public class PrimeNumberGeneratorPerformanceTest {
 
     @Before
     public void setup() {
-        this.generator = new PrimeNumberGeneratorImpl();
+        this.generator = new DivisionPrimeNumberGenerator();
         this.eratosthenesGenerator = new SieveOfEratosthenesGenerator();
     }
 
