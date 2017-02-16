@@ -4,13 +4,30 @@ Compares two methods of generating ranges of prime numbers. The first method use
 is prime or not and the second method implements the Sieve of Eratosthenes. The performance tests demonstrate the
 strengths and the weaknesses of each method.
 
-Future expansion includes implementing the Sieve of Atkin.
-
 ## Running
 
 The application uses Gradle as the build tool. If gradle is not installed, follow the instructions here
-<br><br><a href="https://gradle.org/install">https://gradle.org/install</a><br><br>
-To build and test the application run the command <br><br>`gradle clean build`<br><br>`gradle clean test`
+
+<a href="https://gradle.org/install">https://gradle.org/install</a>
+
+To build and test the application run the command
+
+`gradle build`
+
+After the application has built, the executable jar can be run with a range provided via the command line arguments.
+The jar is located at `build/libs/prime-numbers.jar`.
+
+Example Usage:
+`java -jar build/libs/prime-numbers.jar 1 100`
+
+## Tests
+
+There are two test suites included. The first suite tests the proper execution of the two
+algorithms and is executed during the build of the application. The second suite are performance
+tests. These tests compare the execution time of the algorithms and are fairly long running.
+In my testing they would finish in under two minutes. To run the performance tests
+
+`gradle clean perfTest`
 
 ## Instructions
 
