@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 /**
  * Created by mrd on 2/13/17.
  */
-public class DivisionPrimeNumberGeneratorTest {
+public class PrimeNumberGeneratorTest {
 
     private PrimeNumberGenerator generatorA;
 
