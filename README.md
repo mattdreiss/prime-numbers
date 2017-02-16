@@ -6,19 +6,15 @@ strengths and the weaknesses of each method.
 
 ## Running
 
-The application uses Gradle as the build tool. If gradle is not installed, follow the instructions here
-
+The application uses Gradle as the build tool. If gradle is not installed, follow the instructions here 
 <a href="https://gradle.org/install">https://gradle.org/install</a>
 
-To build and test the application run the command
-
-`gradle build`
+To build and unit test the application run the command `gradle build`
 
 After the application has built, the executable jar can be run with a range provided via the command line arguments.
 The jar is located at `build/libs/prime-numbers.jar`.
 
-Example Usage:
-`java -jar build/libs/prime-numbers.jar 1 100`
+Example Usage: `java -jar build/libs/prime-numbers.jar 1 100`
 
 ## Tests
 
