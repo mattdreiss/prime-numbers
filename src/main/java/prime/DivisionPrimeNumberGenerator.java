@@ -10,20 +10,20 @@ public class DivisionPrimeNumberGenerator implements PrimeNumberGenerator {
 
     @Override
     public List<Integer> generate(int startingValue, int endingValue) {
-        int pos = startingValue;
-        int rangeEnd = endingValue;
+        int start = startingValue;
+        int end = endingValue;
         List<Integer> primes = new ArrayList<>();
 
         if (startingValue > endingValue) {
-            pos = endingValue;
-            rangeEnd = startingValue;
+            start = endingValue;
+            end = startingValue;
         }
 
-        while (pos <= rangeEnd) {
-            if (isPrime(pos)) {
-                primes.add(pos);
+        while (start <= end) {
+            if (isPrime(start)) {
+                primes.add(start);
             }
-            pos++;
+            start++;
         }
 
         return primes;
