@@ -13,12 +13,17 @@ public class DivisionPrimeNumberGenerator implements PrimeNumberGenerator {
     public List<Integer> generate(int startingValue, int endingValue) {
         int start = startingValue;
         int end = endingValue;
-        List<Integer> primes = new ArrayList<>();
 
         if (startingValue > endingValue) {
             start = endingValue;
             end = startingValue;
         }
+
+        if (start < 2) {
+            start = 2;
+        }
+
+        List<Integer> primes = new ArrayList<>();
 
         while (start <= end) {
             if (isPrime(start)) {
