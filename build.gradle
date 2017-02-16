@@ -10,7 +10,13 @@ dependencies {
 }
 
 test {
+    exclude '**/PrimeNumberGeneratorPerformanceTest.class'
+}
+
+task('perfTest', type: Test) {
     testLogging.showStandardStreams = true
+    include '**/PrimeNumberGeneratorPerformanceTest.class'
+    exclude '**/PrimeNumberGeneratorTest.class'
 }
 
 jar {
