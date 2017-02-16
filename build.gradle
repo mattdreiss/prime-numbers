@@ -12,3 +12,9 @@ dependencies {
 test {
     testLogging.showStandardStreams = true
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Application'
+    }
+}
