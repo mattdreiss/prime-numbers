@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by mrd on 2/13/17.
+ * The division method is an algorithm that divides an integer n by the integers between 2 and the square root of n.
+ * If one of the divisors divided n evenly then n is a composite integer and not prime.
  */
 public class DivisionPrimeNumberGenerator implements PrimeNumberGenerator {
 

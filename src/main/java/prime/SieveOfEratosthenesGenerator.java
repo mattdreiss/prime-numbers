@@ -5,7 +5,11 @@ import java.util.BitSet;
 import java.util.List;
 
 /**
- * Created by mrd on 2/15/17.
+ * The Sieve of Eratosthenes is an algorithm that aims to determine which of the integer in a range from 1 to n
+ * are composite. Once the composite integers are identified, the remaining integers in the range are the primes.
+ *
+ * A BitSet is used to store composite number table as it takes less memory than an array of booleans. The most memory
+ * is used in collecting the primes into a list.
  */
 public class SieveOfEratosthenesGenerator implements PrimeNumberGenerator {
 
