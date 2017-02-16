@@ -11,28 +11,32 @@ import java.util.concurrent.TimeUnit;
  */
 public class PrimeNumberGeneratorPerformanceTest {
 
-    private PrimeNumberGeneratorImpl generator;
+    private PrimeNumberGenerator generator;
+
+    private PrimeNumberGenerator eratosthenesGenerator;
 
     @Before
     public void setup() {
         this.generator = new PrimeNumberGeneratorImpl();
+        this.eratosthenesGenerator = new SieveOfEratosthenesGenerator();
     }
 
     @Test
     public void performanceTest() {
-        int i = 0;
-        int iterations = 1;
-        int primeRangeEnd = 1000000000;
+        int primeRangeEnd = 1000000;
 
-        Stopwatch stopwatch = Stopwatch.createUnstarted();
-        stopwatch.start();
-        while (i < iterations) {
-            generator.generate(1, primeRangeEnd);
-            i++;
-        }
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        generator.generate(1, primeRangeEnd);
         stopwatch.stop();
-        System.out.println("Generation time: " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
 
+        System.out.println("Division generation time: " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
+
+        stopwatch.reset();
+        stopwatch.start();
+        eratosthenesGenerator.generate(1, primeRangeEnd);
+        stopwatch.stop();
+
+        System.out.println("Eratosthenes generation time: " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
     }
 
 }

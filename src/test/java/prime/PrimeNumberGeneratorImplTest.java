@@ -2,6 +2,7 @@ package prime;
 
 import com.google.common.collect.Ordering;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -18,7 +19,7 @@ public class PrimeNumberGeneratorImplTest {
 
     @Before
     public void setup() {
-        generator = new PrimeNumberGeneratorImpl();
+        generator = new SieveOfEratosthenesGenerator();
     }
 
     @Test
@@ -74,6 +75,34 @@ public class PrimeNumberGeneratorImplTest {
     @Test
     public void isPrime_7919() throws Exception {
         assertTrue(generator.isPrime(7919));
+    }
+
+    @Ignore
+    @Test
+    public void isPrime_maxInt() throws Exception {
+        assertTrue(generator.isPrime(Integer.MAX_VALUE - 1));
+    }
+
+    @Test
+    public void testRange_1to10() {
+        List<Integer> expected = Arrays.asList(2, 3, 5, 7);
+        List<Integer> actual = generator.generate(1, 10);
+
+        assertNotNull(actual);
+        assertEquals(expected.size(), actual.size());
+        assertTrue(actual.containsAll(expected));
+        assertTrue(Ordering.natural().isOrdered(actual));
+    }
+
+    @Test
+    public void testRange_1to10Reverse() {
+        List<Integer> expected = Arrays.asList(2, 3, 5, 7);
+        List<Integer> actual = generator.generate(10, 1);
+
+        assertNotNull(actual);
+        assertEquals(expected.size(), actual.size());
+        assertTrue(actual.containsAll(expected));
+        assertTrue(Ordering.natural().isOrdered(actual));
     }
 
     @Test
