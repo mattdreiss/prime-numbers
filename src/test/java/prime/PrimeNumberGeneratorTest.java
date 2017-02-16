@@ -93,7 +93,7 @@ public class PrimeNumberGeneratorTest {
     }
 
     @Test
-    public void testRange_NegativeRange() {
+    public void testRange_negativeRange() {
         List<Integer> actual = generatorA.generate(-10, -1);
 
         assertNotNull(actual);
@@ -103,6 +103,42 @@ public class PrimeNumberGeneratorTest {
 
         assertNotNull(actual);
         assertEquals(Collections.EMPTY_LIST, actual);
+    }
+
+    @Test
+    public void testRange_smallRange() {
+        List<Integer> expected = Arrays.asList(2, 3);
+        List<Integer> actual = generatorA.generate(1, 3);
+
+        assertNotNull(actual);
+        assertEquals(expected.size(), actual.size());
+        assertTrue(actual.containsAll(expected));
+        assertTrue(Ordering.natural().isOrdered(actual));
+
+        actual = generatorB.generate(1, 3);
+
+        assertNotNull(actual);
+        assertEquals(expected.size(), actual.size());
+        assertTrue(actual.containsAll(expected));
+        assertTrue(Ordering.natural().isOrdered(actual));
+    }
+
+    @Test
+    public void testRange_sameNumberRange() {
+        List<Integer> expected = Arrays.asList(2);
+        List<Integer> actual = generatorA.generate(2, 2);
+
+        assertNotNull(actual);
+        assertEquals(expected.size(), actual.size());
+        assertTrue(actual.containsAll(expected));
+        assertTrue(Ordering.natural().isOrdered(actual));
+
+        actual = generatorB.generate(2, 2);
+
+        assertNotNull(actual);
+        assertEquals(expected.size(), actual.size());
+        assertTrue(actual.containsAll(expected));
+        assertTrue(Ordering.natural().isOrdered(actual));
     }
 
     @Test

@@ -53,8 +53,8 @@ public class SieveOfEratosthenesGenerator implements PrimeNumberGenerator {
         BitSet compositeNumberTable = buildCompositeNumberTable(end);
         List<Integer> primes = new ArrayList<>();
 
-        for (int i = 0; i < compositeNumberTable.length(); i++) {
-            if (!compositeNumberTable.get(i) && i >= start) {
+        for (int i = start; i <= end && i > 0; i++) {
+            if (!compositeNumberTable.get(i)) {
                 primes.add(i);
             }
         }
