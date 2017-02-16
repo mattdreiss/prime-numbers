@@ -22,9 +22,11 @@ You should also develop a small main program to drive your generator and to allo
 user to specify the prime number range via the command line. To successfully
 complete the exercise, all unit tests must pass as well as provide 100% code coverage.
 Notes:
-• The code should handle inverse ranges such that 1-10 and 10-1 are equivalent.
-• Ensure that you run a test against the range 7900 and 7920 (valid primes are 7901,
-7907, 7919).
+<ul>
+<li>The code should handle inverse ranges such that 1-10 and 10-1 are equivalent.</li>
+<li>Ensure that you run a test against the range 7900 and 7920 (valid primes are 7901,
+7907, 7919).</li>
+</ul>
 
 ```
 Interface PrimeNumberGenerator {
