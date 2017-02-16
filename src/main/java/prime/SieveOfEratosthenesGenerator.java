@@ -2,6 +2,7 @@ package prime;
 
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -43,6 +44,10 @@ public class SieveOfEratosthenesGenerator implements PrimeNumberGenerator {
 
         if (start < 2) {
             start = 2;
+        }
+
+        if (end < 2) {
+            return Collections.emptyList();
         }
 
         BitSet compositeNumberTable = buildCompositeNumberTable(end);

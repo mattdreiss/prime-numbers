@@ -1,6 +1,7 @@
 package prime;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,6 +22,10 @@ public class DivisionPrimeNumberGenerator implements PrimeNumberGenerator {
 
         if (start < 2) {
             start = 2;
+        }
+
+        if (end < 2) {
+            return Collections.emptyList();
         }
 
         List<Integer> primes = new ArrayList<>();

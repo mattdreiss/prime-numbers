@@ -4,7 +4,9 @@ import com.google.common.collect.Ordering;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -88,6 +90,19 @@ public class PrimeNumberGeneratorTest {
     public void isPrime_7919() throws Exception {
         assertTrue(generatorA.isPrime(7919));
         assertTrue(generatorB.isPrime(7919));
+    }
+
+    @Test
+    public void testRange_NegativeRange() {
+        List<Integer> actual = generatorA.generate(-10, -1);
+
+        assertNotNull(actual);
+        assertEquals(Collections.EMPTY_LIST, actual);
+
+        actual = generatorB.generate(-10, -1);
+
+        assertNotNull(actual);
+        assertEquals(Collections.EMPTY_LIST, actual);
     }
 
     @Test
