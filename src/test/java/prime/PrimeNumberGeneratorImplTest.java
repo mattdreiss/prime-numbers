@@ -77,12 +77,6 @@ public class PrimeNumberGeneratorImplTest {
         assertTrue(generator.isPrime(7919));
     }
 
-    @Ignore
-    @Test
-    public void isPrime_maxInt() throws Exception {
-        assertTrue(generator.isPrime(Integer.MAX_VALUE - 1));
-    }
-
     @Test
     public void testRange_1to10() {
         List<Integer> expected = Arrays.asList(2, 3, 5, 7);
