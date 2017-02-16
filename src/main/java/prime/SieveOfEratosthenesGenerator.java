@@ -1,6 +1,7 @@
 package prime;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.List;
 
 /**
@@ -8,15 +9,17 @@ import java.util.List;
  */
 public class SieveOfEratosthenesGenerator implements PrimeNumberGenerator {
 
-    private boolean[] buildCompositeNumberTable(int endingValue) {
-        boolean[] compositeTable = new boolean[endingValue - 1];
+    private BitSet buildCompositeNumberTable(int endingValue) {
+        BitSet compositeTable = new BitSet(endingValue);
 
         int maxDivisor = (int) Math.sqrt(endingValue);
 
         for (int i = 2; i <= maxDivisor; i++) {
-            if (!compositeTable[i - 2]) {
-                for (int j = i + i; j <= endingValue; j += i) {
-                    compositeTable[j - 2] = true;
+            if (!compositeTable.get(i)) {
+                for (int j = i + i; j <= endingValue && j > 0; j += i) {
+                    if (!compositeTable.get(j)) {
+                        compositeTable.flip(j);
+                    }
                 }
             }
         }
@@ -38,13 +41,12 @@ public class SieveOfEratosthenesGenerator implements PrimeNumberGenerator {
             start = 2;
         }
 
-        boolean[] compositeNumberTable = buildCompositeNumberTable(end);
+        BitSet compositeNumberTable = buildCompositeNumberTable(end);
         List<Integer> primes = new ArrayList<>();
 
-
-        for (int i = 0; i < compositeNumberTable.length; i++) {
-            if (!compositeNumberTable[i] && i + 2 >= start) {
-                primes.add(i + 2);
+        for (int i = 0; i < compositeNumberTable.length(); i++) {
+            if (!compositeNumberTable.get(i) && i >= start) {
+                primes.add(i);
             }
         }
 
@@ -57,7 +59,7 @@ public class SieveOfEratosthenesGenerator implements PrimeNumberGenerator {
             return false;
         }
 
-        boolean[] compositeNumberTable = buildCompositeNumberTable(value);
-        return !compositeNumberTable[value - 2];
+        BitSet compositeNumberTable = buildCompositeNumberTable(value);
+        return !compositeNumberTable.get(value);
     }
 }
